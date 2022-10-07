@@ -255,14 +255,14 @@ impl<'d, ADC: Adc> AdcDriver<'d, ADC> {
     }
 
     #[cfg(all(esp32, esp_idf_version_major = "4"))]
-    pub fn read_hall(
-        &mut self,
-        _hall_sensor: &mut crate::hall::HallSensor,
-    ) -> Result<u16, EspError> {
-        let measurement = unsafe { hall_sensor_read() };
+    // pub fn read_hall(
+    //     &mut self,
+    //     _hall_sensor: &mut crate::hall::HallSensor,
+    // ) -> Result<u16, EspError> {
+    //     let measurement = unsafe { hall_sensor_read() };
 
-        self.raw_to_voltage(measurement, adc_atten_t_ADC_ATTEN_DB_0)
-    }
+    //     self.raw_to_voltage(measurement, adc_atten_t_ADC_ATTEN_DB_0)
+    // }
 
     fn read_internal(
         &mut self,
